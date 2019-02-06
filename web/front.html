@@ -1,0 +1,254 @@
+<!DOCTYPE html>
+<!--
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+-->
+<html>
+    <head>
+        <title>TODO supply a title</title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+        <style>
+            
+            .main{
+                background-image: url("l1.jpg");
+                height:100vh;
+                background-size:cover; 
+                background-position: center;
+                background-repeat: no-repeat;
+                overflow:hidden;
+            }
+            .a1 
+            {
+               background-color: #cc0066;
+               height:50px;
+               width:58%;
+               color:white;
+             position:relative;
+             left: 300px;
+             text-align: center;
+            box-shadow: 10px 10px 20px black;
+            box-sizing: border-box;
+            transform: translate(0px,-5px);
+                transition-duration: 1s;
+            }
+            .a1:hover
+            {
+                box-shadow: 10px 10px 30px black;
+            }
+            .a2 
+            {
+                background-color: dodgerblue;
+                height:30px;
+                width:20%;
+                color:white;
+                text-align: center;
+                position: relative;
+                top:100px;
+                padding: 10px;
+                font-size: 30px;
+                        animation-name:ani3;
+                animation-duration: 1s;
+                animation-fill-mode: forwards;
+                 box-shadow: 10px 10px 20px black;
+            }
+            img {
+  border-radius: 50%;
+  position: relative;
+  top:50px;
+  left:100px;
+}
+  .btn
+            {
+               
+              border-radius: 10px;
+              
+               
+                position:relative;
+                top: 120px;
+                left:-30px;
+                  font-size: 20px;
+                 color: black;
+                background-color: lawngreen;
+                border: none;
+               
+                padding: 12px 24px;
+                box-shadow: 0px 0px 0px black;
+              
+              
+            }
+            a:hover
+            {
+                color: white;
+            }
+            .btn1
+            {
+                background-color:white;
+                border: none;
+                color:white;
+                border-radius: 10px;
+                padding:10px 24px;
+               
+                position:relative;
+                top: 250px;
+                right:170px;
+                  font-size: 20px;
+               
+            }
+           .btn:hover
+            {
+                transform: translate(0px,-5px);
+                transition-duration: 1s;
+                 box-shadow: 0px 10px 20px white;
+                 color: white;
+            } 
+           .img1
+            {
+          
+                  animation-name:ani1;
+                animation-duration: 1s;
+                animation-fill-mode: forwards;
+            }
+            .img2
+            {
+                 animation-name:ani1;
+                animation-duration: 1s;
+                animation-fill-mode: forwards;
+                
+            }
+            .img3
+            {
+                  animation-name:ani1;
+                animation-duration: 1s;
+                animation-fill-mode: forwards;
+            }
+            @keyframes ani1
+            {
+                0%
+                {
+                    left:-100px;
+                }
+                100%
+                {
+                 left:350px;
+                }
+            }
+             @keyframes ani2
+            {
+                0%
+                {
+                    left:-100px;
+                }
+                100%
+                {
+                 left:230px;
+                }
+            }
+              @keyframes ani3
+            {
+                0%
+                {
+                    left:-100px;
+                }
+                100%
+                {
+                 left:60px;
+                }
+            }
+            a 
+            {
+                color:dodgerblue;
+            }
+            a:hover
+            {
+                color:red;
+            }
+            .container
+            {
+                height: 300px;
+                width: 60%;
+                background-color: grey;
+                box-sizing: border-box;
+                position: relative;
+                top: 200px;
+                left: 300px;
+                transition-delay: 4s;
+            }
+            .content 
+            {
+               
+                height: 280px;
+                width: 31%;
+                box-sizing: border-box;
+                background-color:  black;
+                float: left;
+                margin-top: 10px;
+                margin-bottom: 10px;
+                margin-left: 10px;
+            }
+             .content1 
+            {
+               margin-left: 20px;
+                height: 280px;
+                width: 31%;
+                box-sizing: border-box;
+                background-color: black;
+                float: left;
+                margin-top: 10px;
+                margin-bottom: 10px;
+            }
+             .content2 
+            {
+               margin-left: 20px;
+                height: 280px;
+                width: 31%;
+                box-sizing: border-box;
+                background-color:  black;
+                float: left;
+                  margin-top: 10px;
+                margin-bottom: 10px;
+            }
+            img
+            {
+                position: relative;
+                left:80px;
+                 
+            }
+            img:hover
+            {
+                  transform: translate(0px,-5px);
+                transition-duration: 1s;
+                box-shadow: 0px 0px 0px white;
+            }
+        </style>
+    </head>
+    <body>
+        <div class="main">
+            <div class="a1">
+                <h1><b>Bus Management System </b></h1>
+            </div>
+            <div class="a2">
+                Login As
+            </div>
+            <div class="i1">
+                <div class="container">
+                    <div class="content">
+                <img src="a1.png" alt="Avatar" style="width:100px">
+                <button class="btn"><a href="log4.html" style="color:white"><b>Admin</b></a></button>
+                    </div>
+                    <div class="content1">
+                               <img src="a1.png" alt="Avatar" style="width:100px">
+                               <button class="btn"><a href="log3.html" style="color:white"><b>User</b></a></button>
+                    </div>
+                    <div class="content2">
+                               <img src="a1.png" alt="Avatar" style="width:100px">
+                               <button class="btn"><b><a href="log5.html" style="color:white">Faculties</a></b></button>
+                    </div>
+                </div>
+               
+        </div>
+        </div>
+    </body>
+</html>
