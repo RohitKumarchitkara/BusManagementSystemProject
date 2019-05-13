@@ -36,7 +36,7 @@ public class driverServlet extends HttpServlet {
         if (a.update(d)) {
             HttpSession session = request.getSession();
             session.setAttribute("dname", dname);
-            RequestDispatcher rd = request.getRequestDispatcher("driverdetails.jsp");
+            RequestDispatcher rd = request.getRequestDispatcher("driverdetail2.html");
             rd.forward(request, response);
 
         } else {

@@ -1,0 +1,294 @@
+
+<html>
+<head>
+
+<style>
+body 
+{      
+   background-image: url("bul.jpg");
+   height:100vh;
+	           
+    background-size:cover; 
+    background-position: center;       
+    margin: 0;
+    padding: 0;
+ }
+.c {
+display: flex;
+justify-content: center;
+align-items: center;
+flex-wrap: wrap;
+}
+.a {
+width:300px;
+height:300px;
+background: green;
+}
+.b {
+width:300px;
+height:300px;
+background: blue;
+padding-left: 20px;
+}
+.login-box{
+    width: 320px;
+    height: 470px;
+    background: rgba(0, 0, 0, 0.7);
+    color: wheat;
+    top: 50%;
+    margin-top: 54px;
+    box-sizing: border-box;
+    font-size: 30px;
+  
+}
+#login-box1{
+    width: 320px;
+    height: 470px;
+    background: rgba(0, 0, 0, 0.7);
+    color: #fff;
+    top: 50%;
+    margin-left: 10px;
+    margin-top: 54px;
+    box-sizing: border-box;
+  font-size: 30px;
+   color: wheat;
+   display: none;
+}
+.main 
+{
+	display: flex;
+justify-content: center;
+align-items: center;
+}
+.head 
+{
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	background-color:#2c3e50;
+	color:white;
+	font-size: 45px;
+	height: 100px;
+	padding: 5px;
+}
+.nav{
+			display: flex;
+			background-color: #333;
+			justify-content: left;
+			align-items: left;
+		}
+
+		.nav a{
+			text-align: center;
+			text-decoration: none;
+			color: #f1f1f1;
+			padding: 12px 14px;
+			width: 20%;
+
+		}
+
+		.nav a:hover{
+			color: #333;
+			background-color: #fff200;
+		}
+		.img1
+		{
+                 background-image: url("l3.jpg");
+	             height:100vh;
+	             background-repeat: no-repeat;
+                background-size:cover; 
+                background-position: center;
+		}
+                #btn
+            {
+                background-color:black;
+                border: 2px solid greenyellow;
+                color:white;
+                border-radius: 30px;
+                padding:12px 28px;
+                cursor:pointer;
+                font-size: 20px;
+                width: 200px;
+                outline: none;
+             
+          }
+          #btn:hover 
+          {
+           
+              
+               transform: translate(0px,-5px);
+                transition-duration: 1s;
+         
+          }
+          a 
+          {
+              text-decoration: none;
+              
+          }
+           .bt1
+            {
+                background-color:black;
+                border: 2px solid greenyellow;
+                color:white;
+                border-radius: 30px;
+               height: 45px;
+               width: 250px;
+               font-size: 25px;
+            
+              cursor: pointer;
+              text-align: center;
+              outline: none;
+            }
+            .bt1:hover
+            {
+             
+                 transform: translate(0px,-5px);
+                transition-duration: 1s;
+            }
+            input[type=text]
+            {
+                border-radius: 20px;
+                height: 30px;
+                outline: none;
+                padding: 15px;
+                font-size: 15pt;
+                width: 220px;
+            }
+                #btn3
+            {
+                background-color:black;
+                border: 2px solid greenyellow;
+                color:white;
+                border-radius: 30px;
+                padding:12px 28px;
+                cursor:pointer;
+                font-size: 20px;
+                width: 200px;
+             outline: none;
+          }
+          #btn3:hover 
+          {
+           
+              
+               transform: translate(0px,-5px);
+                transition-duration: 1s;
+         
+          }
+          .nav{
+			display: flex;
+			background-color: black;
+			justify-content: left;
+			align-items: left;
+		}
+
+		.nav a{
+			text-align: center;
+			text-decoration: none;
+			color: #f1f1f1;
+			padding: 12px 14px;
+			width: 20%;
+
+		}
+
+		.nav a:hover{
+			color: #333;
+			background-color: whitesmoke;
+		}
+                .abc 
+{
+    background-color: #f70334;
+}
+.ab 
+{
+    background-color: dodgerblue;
+    pointer:cursor;
+    color: white;
+    position: absolute;
+    left:10px;
+     border-radius: 10px;
+     outline: none;
+     border: none;
+    height: 40px;
+    width: 100px;
+    
+}
+</style>
+<script src="jquery-3.3.1 (1).js">
+    
+  </script>
+  <script type="text/javascript">
+    $(document).ready(function(){
+  $("#btn3").click(function(){
+    $("#login-box1").toggle();
+   
+  });
+});
+  </script>
+  <script type="text/javascript">
+          function myValidation()
+            {
+                var flag = true;
+                var did = document.forms["myform"]["dID"];
+                var dname= document.forms["myform"]["dname"];
+                if(did.value==="")
+                {
+                    alert("Please Enter Driver ID");
+                    flag=false;
+                }
+                if(dname.value==="")
+                {
+                    alert("Please Enter Driver Name"); 
+                    flag=false;
+                }
+                return flag;
+            }
+      </script>
+</head>
+<body>
+	
+	
+		<div class="head">
+             <b>Driver Details Here</b>
+             
+           
+		</div>
+    <div class="nav">
+	<a href="adminhome.html">HOME</a>
+		<a href="driverdetail2.html">Driver</a>
+		<a href="busdetails2.html">Bus</a>
+		<a href="routehome1.html">Routes</a>
+
+  <a href="newregistration.jsp">New Registration</a>
+  <a href="logout" class="abc">Logout</a>
+</div>
+	
+<div class="c">
+    <div class="login-box"><br>
+        
+                    <form action="search.jsp" name="myform" method="post" onsubmit="return myValidation()">
+                        <center><b>Driver ID <br><input type ="text" name="dID"></b></center><br>
+                        
+                      
+                        <center><b>Driver Name</b> :<input type ="text" name="dname"></center><br>
+                        
+                      
+                       
+             
+                        <center><button id="btn"><img src="s1.png" height="25px;" width="25px"><b>&nbsp;&nbsp;Search</b></button></center>
+                        </form>
+                        
+                        <center><button id="btn3"><img src="s1.png" height="25px;" width="25px"><b>&nbsp;&nbsp;More</b></button></center>
+                    
+</div>
+<div id="login-box1">
+    <br><br>
+    <center>
+        <a href="driverupdate.jsp"> <button class="bt1"><img src="p.png" height="25px;" width="25px"><b>&nbsp;&nbsp;Add Record</b></button></a><br><br>
+                    <a href="viewServlet"><button class="bt1"><img src="v2.png" height="25px;" width="25px"><b>&nbsp;&nbsp;View Record</b></button></a><br><br>
+                    <a href="deletedriver.html"><button class="bt1">&nbsp;&nbsp;<img src="dl3.png" height="25px;" width="25px"><b>&nbsp;&nbsp;Delete Record</b></button></a><br><br>
+                    <a href="uodateDriver.jsp"><button class="bt1"><b>Update Record</b></button></a><br><br>
+    </center>
+</div>
+</div>
+</body>
+</html>

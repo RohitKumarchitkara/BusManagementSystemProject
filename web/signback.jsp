@@ -19,9 +19,9 @@
     
         //session.setAttribute("uname", user);
          //response.sendRedirect("welcome.jsp");
-       out.print(" User Registration Successfull!"+"<a href='log3.html'>Go to Login</a>");
+       out.print("<script>alert('Your Account Succesfully Created'); setTimeout(function(){window.location='loginsignup.jsp'}, 1*1000);</script>");
     } catch (SQLIntegrityConstraintViolationException e) {
-        out.println("<script>alert('User already Exists'); setTimeout(function(){window.location='sign1.html'}, 1*1000);</script>");
+        out.println("<script>alert('User already Exists'); setTimeout(function(){window.location='loginsignup.jsp'}, 1*1000);</script>");
         //response.sendRedirect("first.jsp");
     }
 %>

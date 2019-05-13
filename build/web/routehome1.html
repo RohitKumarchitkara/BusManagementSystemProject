@@ -1,0 +1,269 @@
+
+<html>
+<head>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bulma/0.7.4/css/bulma.min.css">
+<style>
+    html{
+         background: url(bul.jpg) no-repeat center center fixed; 
+        -webkit-background-size: cover;
+        -moz-background-size: cover;
+        -o-background-size: cover;
+        background-size: cover;
+    }
+/*body 
+{      
+    background-image: url("bul.jpg");
+    height:100vh;
+    background-size:auto; 
+    background-position: center;
+    background-attachment: fixed;
+    background-repeat:no-repeat;
+    margin: 0;
+    padding: 0;
+ }*/
+.c {
+display: flex;
+justify-content: center;
+align-items: center;
+flex-wrap: wrap;
+}
+.a {
+width:300px;
+height:300px;
+background: green;
+}
+.b {
+width:300px;
+height:300px;
+background: blue;
+padding-left: 20px;
+}
+#login-box{
+    width: 320px;
+    height: 470px;
+    background: rgba(0, 0, 0, 0.7);
+    color: wheat;
+    top: 50%;
+    margin-top: 54px;
+    box-sizing: border-box;
+    font-size: 30px;
+     
+}
+#login-box1{
+    width: 320px;
+    height: 470px;
+    background: rgba(0, 0, 0, 0.7);
+    color: #fff;
+    top: 50%;
+    margin-left: 10px;
+    margin-top: 54px;
+    box-sizing: border-box;
+  font-size: 30px;
+   color: wheat;
+  display: none;
+}
+.main 
+{
+	display: flex;
+justify-content: center;
+align-items: center;
+}
+.head 
+{
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	background-color:#2c3e50;
+	color:white;
+	font-size: 45px;
+	height: 100px;
+	padding: 5px;
+}
+.nav{
+			display: flex;
+			background-color: #333;
+			justify-content: left;
+			align-items: left;
+		}
+
+		.nav a{
+			text-align: center;
+			text-decoration: none;
+			color: #f1f1f1;
+			padding: 12px 14px;
+			width: 20%;
+
+		}
+
+		.nav a:hover{
+			color: #333;
+			background-color: #fff200;
+		}
+		.img1
+		{
+                 background-image: url("l3.jpg");
+	             height:100vh;
+	             background-repeat: no-repeat;
+                background-size:cover; 
+                background-position: center;
+		}
+                #btn
+            {
+                background-color:#0abde3;
+                border: none;
+                color:white;
+                border-radius: 30px;
+                padding:12px 28px;
+                cursor:pointer;
+                font-size: 20px;
+              
+               box-shadow: 10px 10px 10px white;
+          }
+          #btn:hover 
+          {
+              background-color: yellow;
+              color: black;
+               transform: translate(0px,-5px);
+                transition-duration: 1s;
+             box-shadow: 10px 10px 10px gray; 
+          }
+          a 
+          {
+              text-decoration: none;
+              
+          }
+           .bt1
+            {
+                background-color:#ff4757;
+                border: none;
+                color:white;
+                border-radius: 30px;
+               height: 45px;
+               width: 250px;
+               font-size: 25px;
+            outline: none;
+              cursor: pointer;
+              text-align: center;
+            }
+          
+            input[type=text]
+            {
+                border-radius: 20px;
+                height: 30px;
+                outline: none;
+                padding: 15px;
+                font-size: 15pt;
+                width: 220px;
+            }
+            a{
+                outline: none;
+            }
+            a 
+              {
+                width: 150px;
+            }
+                    	.nav{
+			display: flex;
+			background-color: black;
+
+		}
+
+		.nav a{
+			text-align: center;
+			text-decoration: none;
+			color: #f1f1f1;
+			padding: 12px 14px;
+			width: 20%;
+
+		}
+
+		.nav a:hover{
+			color: black;
+			background-color: whitesmoke;
+		}
+                .button is-danger
+                {
+                    height: 45;
+                }
+                .abc 
+{
+    background-color: #f70334;
+}
+</style>
+<script src="jquery-3.3.1 (1).js">
+    
+  </script>
+  <script type="text/javascript">
+    $(document).ready(function(){
+  $("#b").click(function(){
+    $("#login-box1").toggle();
+       $("#login-box").fadeTo("slow", 0.7);
+  });
+});
+  </script>
+     <script type="text/javascript">
+          function myValidation()
+            {
+                var flag = true;
+                var rname = document.forms["myform"]["rname"];
+                var rcode= document.forms["myform"]["rcode"];
+                if(rname.value==="")
+                {
+                    alert("Please Enter Route Name");
+                    flag=false;
+                }
+                if(rcode.value==="")
+                {
+                    alert("Please Enter Route Code"); 
+                    flag=false;
+                }
+                return flag;
+            }
+      </script>
+</head>
+<body>
+	
+	
+		<div class="head">
+             <b>Routes Details Here</b>
+		</div>
+	<div class="nav">
+	<a href="adminhome.html">HOME</a>
+		<a href="driverdetail2.html">Driver</a>
+		<a href="busdetails2.html">Bus</a>
+		<a href="routehome1.html">Routes</a>
+	        
+  
+  <a href="newregistration.jsp">New Registration</a>
+  <a href="logout" class="abc">Logout</a>
+</div>
+<div class="c">
+    <div id="login-box"><br>
+        
+                    <form action="routesearch.jsp" name="myform" method="post" onsubmit="return myValidation()">
+                        <center><b>Route Name</b> <br><input type ="text" name="rname"></center><br>
+                        
+                      
+                        <center><b>Route Code</b> :<input type ="text" name="rcode"></center><br>
+                        
+                      
+                       
+             
+<!--                        <center><button id="btn"><b>Search</b></button></center>-->
+                    <center><button class="button is-info is-rounded" style="width:150px;"><b>Search</b></button></center>
+                    </form>
+        <center> <div id="b"><a class="button is-danger">More</a><br></div></center>
+</div>
+<div id="login-box1">
+    <br><br>
+    <center>
+    <a href="routeadd.html"> <button class="bt1"><b>Add Record</b></button></a><br><br>
+                    <a href="viewRouteServlet"><button class="bt1"><b>View Record</b></button></a><br><br>
+                    <a href="deleteroute.html"><button class="bt1"><b>Delete Record</b></button></a><br><br>
+                    <a href="updateRoute.jsp"><button class="bt1"><b>Update Record</b></button></a><br><br>
+    </center>
+</div>
+</div>
+</body>
+</html>
+

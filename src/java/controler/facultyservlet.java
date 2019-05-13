@@ -22,10 +22,10 @@ public class facultyservlet extends HttpServlet {
             throws ServletException, IOException {
         response.setContentType("text/html;charset=UTF-8");
         PrintWriter out = response.getWriter();
-           String uname = request.getParameter("username");
+           String email = request.getParameter("email");
             String pwd = request.getParameter("password");
             faculty f = new faculty();
-            f.setName(uname);
+            f.setEmail(email);
             f.setPass(pwd);
             
           facultyDAO a = new facultyDAO();
@@ -33,14 +33,14 @@ public class facultyservlet extends HttpServlet {
           if(a.check(f))
           {
              HttpSession session = request.getSession();
-              session.setAttribute("uname",uname);
-              RequestDispatcher rd = request.getRequestDispatcher("success.html");
+              session.setAttribute("email",email);
+              RequestDispatcher rd = request.getRequestDispatcher("facultyHome.jsp");
               rd.forward(request,response); 
               
           }
           else
           {
-              response.sendRedirect("log5.html");
+              response.sendRedirect("facultyLogin.jsp");
           }
         
     }

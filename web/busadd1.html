@@ -1,0 +1,226 @@
+
+<html>
+<head>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bulma/0.7.4/css/bulma.min.css">
+<style>
+body 
+{      
+   background-image: url("sb.jpg");
+   height:140vh;
+	           
+    background-size:cover; 
+    background-position: center;       
+    margin: 0;
+    padding: 0;
+ }
+.c {
+display: flex;
+justify-content: center;
+align-items: center;
+flex-wrap: wrap;
+}
+.a {
+width:300px;
+height:300px;
+background: green;
+}
+.b {
+width:300px;
+height:300px;
+background: blue;
+padding-left: 20px;
+}
+.login-box{
+    width: 420px;
+    height: 590px;
+    background: #f1f1f117;
+    color: white;
+    top: 50%;
+    margin-top: 30px;
+    box-sizing: border-box;
+    font-size: 18px;
+  
+}
+.login-box1{
+    width: 320px;
+    height: 400px;
+    background: #f1f1f124;
+    color: #fff;
+    top: 50%;
+    margin-left: 10px;
+    margin-top: 54px;
+    box-sizing: border-box;
+  font-size: 30px;
+   color: wheat;
+}
+.main 
+{
+	display: flex;
+justify-content: center;
+align-items: center;
+}
+.head 
+{
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	background-color:#2c3e50;
+	color:white;
+	font-size: 45px;
+	height: 100px;
+	padding: 5px;
+}
+.nav{
+			display: flex;
+			background-color: #333;
+			justify-content: left;
+			align-items: left;
+		}
+
+		.nav a{
+			text-align: center;
+			text-decoration: none;
+			color: #f1f1f1;
+			padding: 12px 14px;
+			width: 20%;
+
+		}
+
+		.nav a:hover{
+			color: #333;
+			background-color: #fff200;
+		}
+		.img1
+		{
+                 background-image: url("l3.jpg");
+	             height:100vh;
+	             background-repeat: no-repeat;
+                background-size:cover; 
+                background-position: center;
+		}
+       
+        
+          a 
+          {
+              text-decoration: none;
+              
+          }
+          
+            
+            input[type=text]
+            {
+                border: 1px solid black;
+            }
+                         	.nav{
+			display: flex;
+			background-color: black;
+
+		}
+
+		.nav a{
+			text-align: center;
+			text-decoration: none;
+			color: #f1f1f1;
+			padding: 12px 14px;
+			width: 20%;
+
+		}
+
+		.nav a:hover{
+			color: black;
+			background-color: whitesmoke;
+		}
+                               .abc 
+{
+    background-color: #f70334;
+}
+
+</style>
+   <script type="text/javascript">
+          function myValidation()
+            {
+                var flag = true;
+                var bid = document.forms["myform"]["bid"];
+                var did= document.forms["myform"]["did"];
+                   var dname= document.forms["myform"]["dname"];
+                    var con= document.forms["myform"]["con"]; 
+                      var dfrom= document.forms["myform"]["dfrom"];
+                        var aat= document.forms["myform"]["aat"];
+                          var at= document.forms["myform"]["at"];
+                if(did.value==="")
+                {
+                    alert("Please Enter Driver ID");
+                    flag=false;
+                }
+                if(bid.value==="")
+                {
+                    alert("Please Enter Bus ID"); 
+                    flag=false;
+                }
+                 if(dname.value==="")
+                {
+                    alert("Please Enter Driver Name"); 
+                    flag=false;
+                }
+                 if(con.value==="")
+                {
+                    alert("Please Enter Contact"); 
+                    flag=false;
+                }
+                if(dfrom.value==="")
+                {
+                    alert("Please Enter Departure From"); 
+                    flag=false;
+                }
+                if(aat.value==="")
+                {
+                    alert("Please Enter Arival At"); 
+                    flag=false;
+                }
+                if(at.value==="")
+                {
+                    alert("Please Enter Arival Time"); 
+                    flag=false;
+                }
+                return flag;
+            }
+      </script>
+</head>
+<body>
+	
+	
+		<div class="head">
+             <b>Add Bus Details Here</b>
+		</div>
+<div class="nav">
+	<a href="busdetails2.html">HOME</a>
+		<a href="driverdetail2.html">Driver</a>
+		<a href="busdetails2.html">Bus</a>
+		<a href="routehome1.html">Routes</a>
+	        
+  
+  <a href="newregistration.jsp">New Registration</a>
+  <a href="logout" class="abc">Logout</a>
+</div>	
+<div class="c">
+    <div class="login-box"><br>
+       
+                    <form action="bServlet2" name="myform" method="post" onsubmit="return myValidation()">
+                        <center><b>Bus ID</b> <br><input type ="text" name="bid"></center><br>
+                        <center><b>Driver ID</b> :<br><input type ="text" name="did"></center><br>
+                        <center><b>Driver Name</b> :<br><input type ="text" name="dname"></center><br>
+                        <center><b>Contact</b> :<br><input type ="text" name="con"></center><br>
+                        <center><b>Departure From</b> :<br><input type ="text" name="dfrom"></center><br>
+                         <center><b>Arival At</b> :<br><input type ="text"  name="aat"></center><br>
+                       <center><b>Arival Time</b> :<br><input type ="text" name="at"></center><br>
+                        <center><button class="button is-info is-rounded" style="width:150px;"><b>Search</b></button></center>
+<!--                       <center><button id="btn"><b>ADD</b></button></center>-->
+                    </form>
+</div>
+</div>
+
+
+</body>
+</html>
+
+

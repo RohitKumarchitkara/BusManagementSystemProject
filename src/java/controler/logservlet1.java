@@ -24,22 +24,24 @@ public class logservlet1 extends HttpServlet {
            String uname = request.getParameter("username");
             String pwd = request.getParameter("password");
             user u = new user();
+            
             u.setName(uname);
             u.setPass(pwd);
             
           userDao a = new userDao();
        
-          if(a.check(u))
+          if(a.check(u)) 
           {
              HttpSession session = request.getSession();
-              session.setAttribute("uname",uname);
-              RequestDispatcher rd = request.getRequestDispatcher("success.html");
+              session.setAttribute("name",uname);
+              System.out.println("In login "+uname);
+              RequestDispatcher rd = request.getRequestDispatcher("UserHome.jsp");
               rd.forward(request,response); 
               
           }
           else
           {
-              response.sendRedirect("log3.html");
+               out.print("<script>alert('UserName And Password Does not Match...Please try Again..'); setTimeout(function(){window.location='loginsignup.jsp'}, 1*500);</script>");
           }
         
     }

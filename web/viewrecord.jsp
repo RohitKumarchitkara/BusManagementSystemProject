@@ -1,27 +1,32 @@
 
 
+<%@page import="java.util.List"%>
+<%@page import="model.driver"%>
+<%@page import="java.util.Iterator"%>
+<%@page import="org.hibernate.Query"%>
+<%@page import="org.hibernate.SessionFactory"%>
+<%@page import="org.hibernate.cfg.Configuration"%>
 <%@page import="java.sql.DriverManager"%>
 <%@page import="java.sql.ResultSet"%>
 <%@page import="java.sql.Statement"%>
 <%@page import="java.sql.Connection"%>
-<%
-String driver = "com.mysql.jdbc.Driver";
-try {
-Class.forName(driver);
-} catch (ClassNotFoundException e) {
-e.printStackTrace();
-}
-Connection connection = null;
-Statement statement = null;
-ResultSet resultSet = null;
-%>
+<%@page import="org.hibernate.Session"%>
+
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html>
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
         <title>JSP Page</title>
+          <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
         <style>
+            body 
+            {
+                background-color: black;
+            }
              .header 
           {
               height: 100px;
@@ -57,10 +62,10 @@ ResultSet resultSet = null;
     padding: 20px;
 }
 
-#customers tr:nth-child(even){background-color: #f2f2f2;}
+#customers tr:nth-child(even){background-color: white;}
+#customers tr:nth-child(odd){background-color: graytext;}
+#customers tr:hover {background-color: #303952;color: white;}
 
-#customers tr:hover {background-color: cyan;}
-#customers th:hover {background-color: green;}
 #customers th {
     padding-top: 12px;
     padding-bottom: 12px;
@@ -68,16 +73,48 @@ ResultSet resultSet = null;
     background-color: dodgerblue;
     color: white;
 }
+.head 
+{
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	background-color:#0fcbea;
+	color:white;
+	font-size: 45px;
+	height: 100px;
+	padding: 5px;
+}
+.ab1 
+{
+    background-color: #1e25ffab;
+    pointer:cursor;
+    color: white;
+    position: absolute;
+    left:10px;
+     border-radius: 10px;
+     outline: none;
+     border: none;
+    height: 40px;
+    width: 100px;
+    font-size: 20px;
+    
+}
+.table-dark td, .table-dark th, .table-dark thead th
+{
+        border-color: white;
+}
          </style>
     </head>
     <body>
-        <div class="main">
-        <div class="header">
-            <h1><b><center>Record Details</center></b></h1>
-        </div>
-        </div>
+        
+		<div class="head">
+             <b>Driver Records</b>
+             <a href="driverdetail2.html"><button class="ab1"><b>Back</b></button>
+             </a>
+		</div>
         <div class="cont">
-            <table border="3 solid black" id="customers">
+<!--            <table border="3 solid black" id="customers">-->
+  <table class="table table-dark table-hover">
 <tr>
     <th><B>Driver ID</b></th>
     <th><b>Driver Name</b></th>
@@ -87,26 +124,20 @@ ResultSet resultSet = null;
     
 </tr>
 <%
-try{
-connection = DriverManager.getConnection("jdbc:mysql://localhost/busman", "root", "");
-statement=connection.createStatement();
-String sql ="select * from driver1";
-resultSet = statement.executeQuery(sql);
-while(resultSet.next()){
+   List<driver> records =  (List<driver>)request.getAttribute("list");   
+   for(driver s: records)
+   {
+
+     
 %>
 <tr>
-<td><b><%=resultSet.getString(1) %></b></td>
-<td><%=resultSet.getString(2) %></td>
-<td><%=resultSet.getString(3) %></td>
-<td><%=resultSet.getString(4) %></td>
-<td><%=resultSet.getString(5) %></td>
-
-
+<td><%=s.getId()%></td>
+<td><%=s.getName()%></td>
+<td><%=s.getSalary()%></td>
+<td><%=s.getAge()%></td>
+<td><%=s.getLn()%></td>
+</tr>
 <%
-}
-connection.close();
-} catch (Exception e) {
-e.printStackTrace();
 }
 %>
 </table>

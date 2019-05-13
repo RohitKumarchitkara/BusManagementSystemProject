@@ -1,0 +1,160 @@
+<html>
+<head>
+
+<style>
+body 
+{      
+ background-image: url("ba1.jpg");
+   height:100vh;
+  
+    background-size:cover; 
+    background-position: center;       
+    margin: 0;
+    padding: 0;
+
+ }
+.c {
+display: flex;
+justify-content: center;
+align-items: center;
+flex-wrap: wrap;
+}
+.a {
+width:300px;
+height:300px;
+background: green;
+}
+.b {
+width:300px;
+height:300px;
+background: blue;
+padding-left: 20px;
+}
+.login-box{
+    width: 320px;
+    height: 350px;
+    background: rgba(0, 0, 0, 0.7);
+    color: wheat;
+    top: 50%;
+    margin-top: 54px;
+    box-sizing: border-box;
+    font-size: 30px;
+ 
+  
+}
+.login-box1{
+    width: 320px;
+    height: 350px;
+    background: rgba(0, 0, 0, 0.7);
+    color: #fff;
+    top: 50%;
+    margin-left: 10px;
+    margin-top: 54px;
+    box-sizing: border-box;
+  font-size: 30px;
+   color: wheat;
+  
+}
+.main 
+{
+	display: flex;
+justify-content: center;
+align-items: center;
+}
+.head 
+{
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	background-color:#1a233c;
+	color:white;
+	font-size: 45px;
+	height: 100px;
+	padding: 5px;
+}
+.nav{
+			display: flex;
+			background-color: #333;
+			justify-content: left;
+			align-items: left;
+		}
+
+		.nav a{
+			text-align: center;
+			text-decoration: none;
+			color: #f1f1f1;
+			padding: 12px 14px;
+			width: 20%;
+
+		}
+
+		.nav a:hover{
+			color: #333;
+			background-color: #fff200;
+		}
+		.img1
+		{
+                 background-image: url("l3.jpg");
+	             height:100vh;
+	             background-repeat: no-repeat;
+                background-size:cover; 
+                background-position: center;
+		}
+                #btn
+            {
+                background-color:black;
+                border: 2px solid greenyellow;
+                color:white;
+                border-radius: 30px;
+                padding:12px 28px;
+                cursor:pointer;
+                font-size: 20px;
+              outline: none;
+            
+          }
+          #btn:hover 
+          {
+               transform: translate(0px,-5px);
+                transition-duration: 1s;
+        
+          }
+          a 
+          {
+              text-decoration: none;
+              
+          }
+     
+</style>
+
+
+</head>
+<body>
+	
+	
+		<div class="head">
+             <b>Bus Management System</b>
+		</div>
+    
+	
+<div class="c">
+    <div class="login-box"><br>
+        <center><b>Login As ADMIN</b></center><br>
+        <center> <img src="a1.png" height="100px" width="100px" ></center><br>
+        <center><a href="animationlogin1.html"><button id="btn"><b>ADMIN</b></button></a></center>
+</div>
+<div class="login-box1">
+    <br>
+    <center><b>Login As USER</b></center><br>
+    <center> <img src="a1.png" height="100px" width="100px" ></center><br>
+    <center><a href="loginsignup.jsp"><button id="btn"><b>USER</b></button></a></center>
+</div>
+    <div class="login-box1">
+    <br>
+    <center><b>Login As Faculty</b></center><br>
+    <center> <img src="a1.png" height="100px" width="100px" ></center><br>
+    <center><a href="facultyLogin.jsp"><button id="btn"><b>Faculty</b></button></a></center>
+</div>
+</div>
+
+</body> 
+</html>

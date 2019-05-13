@@ -36,7 +36,7 @@ public class deletebus {
     public boolean equals(Object o)
     {
         deletebus d =(deletebus) o;
-      if(bid.equals(d.getBId()) && dname.equals(d.getName())  && did.equals(d.getDId()))
+      if(bid.equals(d.getBId()) && did.equals(d.getDId()))
         {
            return true;
         }

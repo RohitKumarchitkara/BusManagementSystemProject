@@ -3,10 +3,17 @@ package org.apache.jsp;
 import javax.servlet.*;
 import javax.servlet.http.*;
 import javax.servlet.jsp.*;
+import java.util.List;
+import model.driver;
+import java.util.Iterator;
+import org.hibernate.Query;
+import org.hibernate.SessionFactory;
+import org.hibernate.cfg.Configuration;
 import java.sql.DriverManager;
 import java.sql.ResultSet;
 import java.sql.Statement;
 import java.sql.Connection;
+import org.hibernate.Session;
 
 public final class viewrecord_jsp extends org.apache.jasper.runtime.HttpJspBase
     implements org.apache.jasper.runtime.JspSourceDependent {
@@ -51,17 +58,13 @@ public final class viewrecord_jsp extends org.apache.jasper.runtime.HttpJspBase
       out.write("\n");
       out.write("\n");
       out.write("\n");
-
-String driver = "com.mysql.jdbc.Driver";
-try {
-Class.forName(driver);
-} catch (ClassNotFoundException e) {
-e.printStackTrace();
-}
-Connection connection = null;
-Statement statement = null;
-ResultSet resultSet = null;
-
+      out.write("\n");
+      out.write("\n");
+      out.write("\n");
+      out.write("\n");
+      out.write("\n");
+      out.write("\n");
+      out.write("\n");
       out.write("\n");
       out.write("\n");
       out.write("<!DOCTYPE html>\n");
@@ -69,7 +72,15 @@ ResultSet resultSet = null;
       out.write("    <head>\n");
       out.write("        <meta http-equiv=\"Content-Type\" content=\"text/html; charset=UTF-8\">\n");
       out.write("        <title>JSP Page</title>\n");
+      out.write("          <link rel=\"stylesheet\" href=\"https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css\">\n");
+      out.write("  <script src=\"https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js\"></script>\n");
+      out.write("  <script src=\"https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js\"></script>\n");
+      out.write("  <script src=\"https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js\"></script>\n");
       out.write("        <style>\n");
+      out.write("            body \n");
+      out.write("            {\n");
+      out.write("                background-color: black;\n");
+      out.write("            }\n");
       out.write("             .header \n");
       out.write("          {\n");
       out.write("              height: 100px;\n");
@@ -105,27 +116,59 @@ ResultSet resultSet = null;
       out.write("    padding: 20px;\n");
       out.write("}\n");
       out.write("\n");
-      out.write("#customers tr:nth-child(even){background-color: #f2f2f2;}\n");
+      out.write("#customers tr:nth-child(even){background-color: white;}\n");
+      out.write("#customers tr:nth-child(odd){background-color: graytext;}\n");
+      out.write("#customers tr:hover {background-color: #303952;color: white;}\n");
       out.write("\n");
-      out.write("#customers tr:hover {background-color: cyan;}\n");
-      out.write("#customers th:hover {background-color: green;}\n");
       out.write("#customers th {\n");
       out.write("    padding-top: 12px;\n");
       out.write("    padding-bottom: 12px;\n");
       out.write("    text-align: left;\n");
-      out.write("    background-color: skyblue;\n");
+      out.write("    background-color: dodgerblue;\n");
       out.write("    color: white;\n");
+      out.write("}\n");
+      out.write(".head \n");
+      out.write("{\n");
+      out.write("\tdisplay: flex;\n");
+      out.write("\tjustify-content: center;\n");
+      out.write("\talign-items: center;\n");
+      out.write("\tbackground-color:#0fcbea;\n");
+      out.write("\tcolor:white;\n");
+      out.write("\tfont-size: 45px;\n");
+      out.write("\theight: 100px;\n");
+      out.write("\tpadding: 5px;\n");
+      out.write("}\n");
+      out.write(".ab1 \n");
+      out.write("{\n");
+      out.write("    background-color: #1e25ffab;\n");
+      out.write("    pointer:cursor;\n");
+      out.write("    color: white;\n");
+      out.write("    position: absolute;\n");
+      out.write("    left:10px;\n");
+      out.write("     border-radius: 10px;\n");
+      out.write("     outline: none;\n");
+      out.write("     border: none;\n");
+      out.write("    height: 40px;\n");
+      out.write("    width: 100px;\n");
+      out.write("    font-size: 20px;\n");
+      out.write("    \n");
+      out.write("}\n");
+      out.write(".table-dark td, .table-dark th, .table-dark thead th\n");
+      out.write("{\n");
+      out.write("        border-color: white;\n");
       out.write("}\n");
       out.write("         </style>\n");
       out.write("    </head>\n");
       out.write("    <body>\n");
-      out.write("        <div class=\"main\">\n");
-      out.write("        <div class=\"header\">\n");
-      out.write("            <h1><b><center>Record Details</center></b></h1>\n");
-      out.write("        </div>\n");
-      out.write("        </div>\n");
+      out.write("        \n");
+      out.write("\t\t<div class=\"head\">\n");
+      out.write("             <b>Driver Records</b>\n");
+      out.write("             <a href=\"driverdetail2.html\"><button class=\"ab1\"><b>Back</b></button>\n");
+      out.write("             </a>\n");
+      out.write("\t\t</div>\n");
       out.write("        <div class=\"cont\">\n");
-      out.write("            <table border=\"3 solid black\" id=\"customers\">\n");
+      out.write("<!--            <table border=\"3 solid black\" id=\"customers\">-->\n");
+      out.write("  <table class=\"table table-dark table-hover\">\n");
       out.write("<tr>\n");
       out.write("    <th><B>Driver ID</b></th>\n");
       out.write("    <th><b>Driver Name</b></th>\n");
@@ -135,37 +178,31 @@ ResultSet resultSet = null;
       out.write("    \n");
       out.write("</tr>\n");
 
-try{
-connection = DriverManager.getConnection("jdbc:mysql://localhost/busman", "root", "");
-statement=connection.createStatement();
-String sql ="select * from driver1";
-resultSet = statement.executeQuery(sql);
-while(resultSet.next()){
+   List<driver> records =  (List<driver>)request.getAttribute("list");   
+   for(driver s: records)
+   {
+
+     
 
       out.write("\n");
       out.write("<tr>\n");
-      out.write("<td><b>");
-      out.print(resultSet.getString(1) );
-      out.write("</b></td>\n");
       out.write("<td>");
-      out.print(resultSet.getString(2) );
+      out.print(s.getId());
       out.write("</td>\n");
       out.write("<td>");
-      out.print(resultSet.getString(3) );
+      out.print(s.getName());
       out.write("</td>\n");
       out.write("<td>");
-      out.print(resultSet.getString(4) );
+      out.print(s.getSalary());
       out.write("</td>\n");
       out.write("<td>");
-      out.print(resultSet.getString(5) );
+      out.print(s.getAge());
       out.write("</td>\n");
-      out.write("\n");
-      out.write("\n");
+      out.write("<td>");
+      out.print(s.getLn());
+      out.write("</td>\n");
+      out.write("</tr>\n");
 
-}
-connection.close();
-} catch (Exception e) {
-e.printStackTrace();
 }
 
       out.write("\n");

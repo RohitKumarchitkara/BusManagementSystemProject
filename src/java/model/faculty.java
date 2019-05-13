@@ -10,15 +10,15 @@ package model;
  * @author ROHIT
  */
 public class faculty {
-     private String uname;
+     private String email;
     private String pwd;
-    public void setName(String uname)
+    public void setEmail(String email)
     {
-        this.uname=uname;
+        this.email=email;
     }
-    public String getName()
+    public String getEmail()
     {
-        return this.uname;
+        return this.email;
     }
     public void setPass(String pwd)
     {
@@ -30,8 +30,8 @@ public class faculty {
     }
     public boolean equals(Object o)
     {
-        admin u =(admin) o;
-        if(uname.equals(u.getName()) && pwd.equals(u.getPass()))
+        faculty u =(faculty) o;
+        if(email.equals(u.getEmail()) && pwd.equals(u.getPass()))
         {
             return true;
         }

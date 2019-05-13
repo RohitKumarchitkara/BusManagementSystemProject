@@ -8,6 +8,7 @@
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
         <title>JSP Page</title>
         <style>
+          
              .header 
           {
               height: 100px;
@@ -34,39 +35,38 @@
          }
          .con
          {
-             background-color: black;
+             background-image: url("l1_1.jpg");
              border: 4px solid black;
-             height: 500px;
+             height: 600px;
              display: flex;
+             width: 100%;
          }
          .A
          {
              height: 500px;
-             border: 2px solid black;
+             border: none;
             color: white;
             font-size: 20px;
                width: 500px;
+               border: 2px solid white;
+               background-color: rgba(255, 255, 255, 0.13);
+               margin-top: 20px;
          }
-         input[type=text] {
-  width: 200px;
-  padding: 5px 20px;
- 
-  box-sizing: border-box;
-  border: 2px solid black;
-  outline: none;
-  box-shadow: 10px 10px 10px white;
-  background-color: cyan;
-}
-    input[type=text]:hover
-    {
-        box-shadow: 10px 10px 10px black;
-        border: 10px solid white;
-    }
+  input[type=text]
+            {
+                border-radius: 20px;
+                height: 20px;
+                outline: none;
+                padding: 10px;
+                font-size: 15pt;
+                width: 170px;
+            }
+    
      .btn
               {
-                background-color:chartreuse;
+                background-color:dodgerblue;
                 border: none;
-                color:black;
+                color:white;
                 border-radius: 10px;
                height: 45px;
                width: 130px;
@@ -168,30 +168,102 @@
                 0%{transform:rotateY(0);}
                 100%{transform:rotateY(360deg);}
             }
-           
+           .head 
+{
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	background-color:#0abde3;
+	color:white;
+	font-size: 45px;
+	height: 90px;
+	padding: 5px;
+        width: 100%;
+}
+
+.ab 
+{
+    background-color: #f53a02;
+    pointer:cursor;
+    color: white;
+    position: absolute;
+    left:10px;
+     border-radius: 10px;
+     outline: none;
+     border: none;
+    height: 40px;
+    width: 100px;
+    top: 65px;
+    
+}
         </style>
+        <script>
+            function myValidation()
+            {
+                var flag=true;
+                var id=document.forms["myform"]["dID"];
+                var name=document.forms["myform"]["dname"];
+                var sal=document.forms["myform"]["dsalary"];
+                var age=document.forms["myform"]["dage"];
+                var ln=document.forms["myform"]["dln"];
+                if(id.value==="")
+                {
+                     alert("Please Enter Driver Id");
+                      
+                    flag=false;
+          
+                }
+                if(name.value==="")
+                {
+                     alert("Please Enter Driver Name");
+                    
+                    flag=false;
+                }
+                if(sal.value==="")
+                {
+                     alert("Please Enter Driver Salary");
+                    
+                    flag=false;
+                }
+                if(age.value==="")
+                {
+                     alert("Please Enter Driver Age");
+                     
+                    flag=false;
+                }
+                if(ln.value==="")
+                {
+                     alert("Please Enter Driver License number");
+                  
+                    flag=false;
+                }
+                return flag;
+            }
+        </script>
+        
     </head>
     <body>
-        <div class="main">
-        <div class="header">
-            <h1><b><center>Add Driver Record</center></b></h1>
-        </div>
-        </div>
+        <div class="head">
+            <b>Add Driver Details</b><br><br>
+             <a href="driverdetail2.html"><button class="ab"><b>Back</b></button>
+             </a>
+		</div>
+        
             <div class="con">
-               
+                
                 <div class="A">
                   <br><br>
-                    <form action="driverServlet" method="post">
-                        <b>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Driver ID</b> :&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<input type ="text" name="dID" required><br>
+                  <form name="myform" action="driverServlet" method="post" onsubmit="return myValidation()">
+                        <b>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Driver ID</b> :&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<input type ="text" name="dID"><br>
                         <br>
                         <br>
-                        <b>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Driver Name</b> :&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<input type ="text" name="dname" required=""><br>
+                        <b>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Driver Name</b> :&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<input type ="text" name="dname"><br>
                         <br>
                         <br>
-                        <b>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Driver Salary</b> :&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<input type ="text" name="dsalary" required><br>
+                        <b>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Driver Salary</b> :&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<input type ="text" name="dsalary"><br>
                         <br>
                         <br>
-                        <b>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Driver Age</b> :&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<input type ="text" name="dage" required><br>
+                        <b>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Driver Age</b> :&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<input type ="text" name="dage"><br>
                         <br>
                         <br>
                         <b>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Driver Licence No.</b> :&nbsp;&nbsp;&nbsp;<input type ="text" name="dln"><br>

@@ -35,11 +35,11 @@ public class Deletebus extends HttpServlet {
         if (dd.check1(d)) {
             HttpSession session = request.getSession();
             session.setAttribute("dname", dname);
-            RequestDispatcher rd = request.getRequestDispatcher("BusDetails.jsp");
+            RequestDispatcher rd = request.getRequestDispatcher("busdetails2.html");
             rd.forward(request, response);
 
         } else {
-            response.sendRedirect("deleteRecordBus.jsp");
+            response.sendRedirect("deleteBusrecord1.html");
         }
 
         

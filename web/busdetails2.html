@@ -1,0 +1,297 @@
+
+<html>
+<head>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bulma/0.7.4/css/bulma.min.css">
+<style>
+body 
+{      
+   background-image: url("qw.jpg");
+   height:140vh;
+             
+    background-size:cover; 
+    background-position: center;       
+    margin: 0;
+    padding: 0;
+ }
+.c {
+display: flex;
+justify-content: center;
+align-items: center;
+flex-wrap: wrap;
+}
+.a {
+width:300px;
+height:300px;
+background: green;
+}
+.b {
+width:300px;
+height:300px;
+background: blue;
+padding-left: 20px;
+}
+.login-box{
+    width: 320px;
+    height: 480px;
+    background: rgba(0, 0, 0, 0.7);
+    color: wheat;
+    top: 50%;
+    margin-top: 54px;
+    box-sizing: border-box;
+    font-size: 30px;
+  
+}
+#login-box1{
+    width: 320px;
+    height: 470px;
+    background: rgba(0, 0, 0, 0.7);
+    color: #fff;
+    top: 50%;
+    margin-left: 10px;
+    margin-top: 54px;
+    box-sizing: border-box;
+  font-size: 30px;
+   color: wheat;
+   display: none;
+}
+.main 
+{
+  display: flex;
+justify-content: center;
+align-items: center;
+}
+.head 
+{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color:#2c3e50;
+  color:white;
+  font-size: 45px;
+  height: 100px;
+  padding: 5px;
+}
+.nav{
+      display: flex;
+      background-color: #333;
+      justify-content: left;
+      align-items: left;
+    }
+
+    .nav a{
+      text-align: center;
+      text-decoration: none;
+      color: #f1f1f1;
+      padding: 12px 14px;
+      width: 20%;
+
+    }
+
+    .nav a:hover{
+      color: #333;
+      background-color: #fff200;
+    }
+    .img1
+    {
+                 background-image: url("l3.jpg");
+               height:100vh;
+               background-repeat: no-repeat;
+                background-size:cover; 
+                background-position: center;
+    }
+                #btn
+            {
+
+                 background-color:rgba(0,0,0,0.7);
+                border: 1px solid aqua;
+                color:white;
+                border-radius: 30px;
+                padding:12px 28px;
+                cursor:pointer;
+                font-size: 20px;
+              outline: none;
+               
+          }
+          #btn:hover 
+          {
+              background-color: dodgerblue;
+              color: black;
+               transform: translate(0px,-5px);
+                transition-duration: 1s;
+            box-shadow: 10px 10px 10px white;
+          }
+                #btn3
+            {
+
+                 background-color:rgba(0,0,0,0.7);
+                border: 1px solid aqua;
+                color:white;
+                border-radius: 30px;
+                padding:12px 28px;
+                cursor:pointer;
+                font-size: 20px;
+              outline: none;
+               
+          }
+          #btn3:hover 
+          {
+              background-color: dodgerblue;
+              color: black;
+               transform: translate(0px,-5px);
+                transition-duration: 1s;
+           
+          }
+          a 
+          {
+              outline: none;
+              
+          }
+           .bt1
+            {
+                background-color:rgba(0,0,0,0.7);
+                border: 1px solid aqua;
+                color:white;
+                border-radius: 30px;
+               height: 45px;
+               width: 250px;
+               font-size: 25px;
+            outline: none;
+              cursor: pointer;
+              text-align: center;
+            }
+            .bt1:hover
+            {
+                box-shadow: 10px 10px 20px white;
+                 transform: translate(0px,-5px);
+                transition-duration: 1s;
+                background-color: dodgerblue;
+                border: none;            }
+            a 
+            {
+                width: 150px;
+            }
+             	.nav{
+			display: flex;
+			background-color: black;
+
+		}
+
+		.nav a{
+			text-align: center;
+			text-decoration: none;
+			color: #f1f1f1;
+			padding: 12px 14px;
+			width: 20%;
+
+		}
+
+		.nav a:hover{
+			color: black;
+			background-color: whitesmoke;
+		}
+                .button is-danger
+                {
+                    height: 45;
+                }
+                .abc 
+{
+    background-color: #f70334;
+}
+
+.ab 
+{
+    background-color: dodgerblue;
+    pointer:cursor;
+    color: white;
+    position: absolute;
+    left:10px;
+     border-radius: 10px;
+     outline: none;
+     border: none;
+    height: 40px;
+    width: 100px;
+    
+}
+</style>
+<script src="jquery-3.3.1 (1).js">
+    
+  </script>
+  <script type="text/javascript">
+    $(document).ready(function(){
+  $("#b").click(function(){
+    $("#login-box1").toggle();
+  
+  });
+});
+  </script>
+    <script type="text/javascript">
+          function myValidation()
+            {
+                var flag = true;
+                var bid = document.forms["myform"]["bid"];
+                var did= document.forms["myform"]["did"];
+                if(did.value==="")
+                {
+                    alert("Please Enter Driver ID");
+                    flag=false;
+                }
+                if(bid.value==="")
+                {
+                    alert("Please Enter Bus ID"); 
+                    flag=false;
+                }
+                return flag;
+            }
+      </script>
+</head>
+<body>
+  
+  
+    <div class="head">
+             <b>Bus Details Here</b>
+             <br><br><br>
+
+    </div>
+             
+<div class="nav">
+	<a href="adminhome.html">HOME</a>
+		<a href="driverdetail2.html">Driver</a>
+		<a href="busdetails2.html">Bus</a>
+		<a href="routehome1.html">Routes</a>
+	        
+  
+  <a href="newregistration.jsp">New Registration</a>
+  <a href="logout" class="abc">Logout</a>
+</div>
+  
+<div class="c">
+    <div class="login-box">
+       
+        <center>     <img src="a1.png" height="100" width="100"></center>
+                    <form action="bussearch.jsp" method="post" name="myform" onsubmit="return myValidation()">
+                        <center><b>Bus ID</b> <br><input type ="text" name="bid"></center><br>
+                        
+                      
+                        <center><b>Driver ID</b> :<br><input type ="text" name="did"></center><br>
+                        
+                      
+                       
+             
+                        <center><button class="button is-info is-rounded" style="width:150px;"><b>Search</b></button></center>
+
+                    </form>
+                    <center> <div id="b"><a class="button is-danger">More</a><br></div></center>
+</div>
+    <div id="login-box1">
+        <center>     <img src="sa2.png" height="100" width="100"></center><br>
+    <center>
+
+         <a class="button is-danger" href="busadd1.html">Add Record</a><br><br>
+                    <a class="button is-danger" href="viewBus">View Record</a><br><br>
+                     <a class="button is-danger" href="deleteBusrecord1.html">Delete Record</a><br><br>
+                    <a class="button is-danger" href="updateBus.jsp">Update Record</a><br><br>
+    </center>
+</div>
+</div>
+</body>
+</html>

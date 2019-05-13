@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <web-app version="3.1" xmlns="http://xmlns.jcp.org/xml/ns/javaee" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://xmlns.jcp.org/xml/ns/javaee http://xmlns.jcp.org/xml/ns/javaee/web-app_3_1.xsd">
     <welcome-file-list>
-        <welcome-file>login.jsp</welcome-file>
+        <welcome-file>front1.html</welcome-file>
         <welcome-file>index.html</welcome-file>
     </welcome-file-list>
     <servlet>
@@ -40,6 +40,90 @@
         <servlet-name>Deletebus</servlet-name>
         <servlet-class>controler.Deletebus</servlet-class>
     </servlet>
+    <servlet>
+        <servlet-name>UpdateServlet</servlet-name>
+        <servlet-class>controler.UpdateServlet</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>updateS</servlet-name>
+        <servlet-class>controler.updateS</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>bServlet2</servlet-name>
+        <servlet-class>controler.bServlet2</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>routeServlet</servlet-name>
+        <servlet-class>controler.routeServlet</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>deleteRoute</servlet-name>
+        <servlet-class>controler.deleteRoute</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>signServlet</servlet-name>
+        <servlet-class>controler.signServlet</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>signServlet1</servlet-name>
+        <servlet-class>controler.signServlet1</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>getallpermission</servlet-name>
+        <servlet-class>controler.getallpermission</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>grantPermission</servlet-name>
+        <servlet-class>controler.grantPermission</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>permission</servlet-name>
+        <servlet-class>controler.permission</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>viewServlet</servlet-name>
+        <servlet-class>controler.viewServlet</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>viewBus</servlet-name>
+        <servlet-class>controler.viewBus</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>viewProfile</servlet-name>
+        <servlet-class>controler.viewProfile</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>viewRouteServlet</servlet-name>
+        <servlet-class>controler.viewRouteServlet</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>searchServlet</servlet-name>
+        <servlet-class>controler.searchServlet</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>facultySign</servlet-name>
+        <servlet-class>controler.facultySign</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>updateServlet</servlet-name>
+        <servlet-class>controler.updateServlet</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>updateBusServlet</servlet-name>
+        <servlet-class>controler.updateBusServlet</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>updateRouteServlet</servlet-name>
+        <servlet-class>controler.updateRouteServlet</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>logout</servlet-name>
+        <servlet-class>controler.logout</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>viewRouteServlet1</servlet-name>
+        <servlet-class>controler.viewRouteServlet1</servlet-class>
+    </servlet>
     <servlet-mapping>
         <servlet-name>logservlet1</servlet-name>
         <url-pattern>/logservlet1</url-pattern>
@@ -75,6 +159,90 @@
     <servlet-mapping>
         <servlet-name>Deletebus</servlet-name>
         <url-pattern>/Deletebus</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>UpdateServlet</servlet-name>
+        <url-pattern>/UpdateServlet</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>updateS</servlet-name>
+        <url-pattern>/updateS</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>bServlet2</servlet-name>
+        <url-pattern>/bServlet2</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>routeServlet</servlet-name>
+        <url-pattern>/routeServlet</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>deleteRoute</servlet-name>
+        <url-pattern>/deleteRoute</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>signServlet</servlet-name>
+        <url-pattern>/signServlet</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>signServlet1</servlet-name>
+        <url-pattern>/signServlet1</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>getallpermission</servlet-name>
+        <url-pattern>/getallpermission</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>grantPermission</servlet-name>
+        <url-pattern>/grantPermission</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>permission</servlet-name>
+        <url-pattern>/permission</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>viewServlet</servlet-name>
+        <url-pattern>/viewServlet</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>viewBus</servlet-name>
+        <url-pattern>/viewBus</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>viewProfile</servlet-name>
+        <url-pattern>/viewProfile</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>viewRouteServlet</servlet-name>
+        <url-pattern>/viewRouteServlet</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>searchServlet</servlet-name>
+        <url-pattern>/searchServlet</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>facultySign</servlet-name>
+        <url-pattern>/facultySign</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>updateServlet</servlet-name>
+        <url-pattern>/updateServlet</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>updateBusServlet</servlet-name>
+        <url-pattern>/updateBusServlet</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>updateRouteServlet</servlet-name>
+        <url-pattern>/updateRouteServlet</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>logout</servlet-name>
+        <url-pattern>/logout</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>viewRouteServlet1</servlet-name>
+        <url-pattern>/viewRouteServlet1</url-pattern>
     </servlet-mapping>
     <session-config>
         <session-timeout>

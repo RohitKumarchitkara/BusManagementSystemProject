@@ -19,9 +19,9 @@
     
         //session.setAttribute("uname", user);
          //response.sendRedirect("welcome.jsp");
-       out.print("  Faculty Registration Successfull!"+"<a href='log5.html'>Go to Login</a>");
+       out.print("<script>alert('Your Account Successfully Created'); setTimeout(function(){window.location='animationlogin2.html'}, 1*1000);</script>");
     } catch (SQLIntegrityConstraintViolationException e) {
-        out.println("<script>alert('Faculty already Exists'); setTimeout(function(){window.location='sign3.html'}, 1*1000);</script>");
+        out.println("<script>alert('Faculty already Exists'); setTimeout(function(){window.location='animationlogin2.html'}, 1*1000);</script>");
         //response.sendRedirect("first.jsp");
     }
 %>

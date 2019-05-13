@@ -40,11 +40,11 @@ public class bServlet1 extends HttpServlet {
         if (a.add(d)) {
             HttpSession session = request.getSession();
             session.setAttribute("dname", dname);
-            RequestDispatcher rd = request.getRequestDispatcher("BusDetails.jsp");
+            RequestDispatcher rd = request.getRequestDispatcher("busdetails2.html");
             rd.forward(request, response);
 
         } else {
-            response.sendRedirect("busadd.jsp");
+            response.sendRedirect("busadd1.html");
         }
     }
 

@@ -1,19 +1,16 @@
 
 
+<%@page import="model.bus"%>
+<%@page import="java.util.Iterator"%>
+<%@page import="org.hibernate.Query"%>
+<%@page import="org.hibernate.Session"%>
+<%@page import="org.hibernate.SessionFactory"%>
+<%@page import="org.hibernate.cfg.Configuration"%>
 <%@page import="java.sql.DriverManager"%>
 <%@page import="java.sql.ResultSet"%>
 <%@page import="java.sql.Statement"%>
 <%@page import="java.sql.Connection"%>
 <%
-String driver = "com.mysql.jdbc.Driver";
-try {
-Class.forName(driver);
-} catch (ClassNotFoundException e) {
-e.printStackTrace();
-}
-Connection connection = null;
-Statement statement = null;
-ResultSet resultSet = null;
  String bid = request.getParameter("bid"); 
  String did = request.getParameter("did");    
 %>
@@ -23,7 +20,16 @@ ResultSet resultSet = null;
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
         <title>JSP Page</title>
+             <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
         <style>
+            body 
+            {
+                background-image: url("sb.jpg");
+                background-repeat: no-repeat;
+            }
              .header 
           {
               height: 100px;
@@ -59,10 +65,10 @@ ResultSet resultSet = null;
     padding: 20px;
 }
 
-#customers tr:nth-child(even){background-color: #f2f2f2;}
+#customers tr:nth-child(even){background-color:#18dcff;}
 
-#customers tr:hover {background-color: cyan;}
-#customers th:hover {background-color: green;}
+#customers tr:hover {background-color: #303952;color: white;}
+#customers th:hover {background-color:  #fff200; color: black;}
 #customers th {
     padding-top: 12px;
     padding-bottom: 12px;
@@ -70,53 +76,124 @@ ResultSet resultSet = null;
     background-color: dodgerblue;
     color: white;
 }
+.head 
+{
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	background-color:rgba(15, 120, 232, 0.25);
+	color:white;
+	font-size: 45px;
+	height: 100px;
+	padding: 5px;
+}
+#particles-js
+		{
+			height: 100%;
+			background-color: black;
+		}
+                         	.nav{
+			display: flex;
+			background-color: black;
+
+		}
+
+		.nav a{
+			text-align: center;
+			text-decoration: none;
+			color: #f1f1f1;
+			padding: 12px 14px;
+			width: 20%;
+
+		}
+
+		.nav a:hover{
+			color: black;
+			background-color: whitesmoke;
+		}
+                .button is-danger
+                {
+                    height: 45;
+                }
+                .abc 
+{
+    background-color: #f70334;
+}
+.table-dark td, .table-dark th, .table-dark thead th 
+{
+    border-color: white;
+}
+.table-dark th{
+    background-color: white;
+    color: black;
+}
          </style>
     </head>
     <body>
-        <div class="main">
-        <div class="header">
-            <h1><b><center>Bus Record Details</center></b></h1>
-        </div>
-        </div>
+        <div class="head">
+             <b>Search Record</b>
+		</div>
+                     
+<div class="nav">
+	<a href="busdetails2.html">HOME</a>
+		<a href="driverdetail2.html">Driver</a>
+		<a href="busdetails2.html">Bus</a>
+		<a href="routehome1.html">Routes</a>
+	        
+ 
+  <a href="logout" class="abc">Logout</a>
+</div>
         <div class="cont">
-            <table border="3 solid black" id="customers">
+            <table class="table table-dark table-hover">
 <tr>
-    <th><B>Bus ID</b></th>
-    <th><B>Driver ID</b></th>
-    <th><b>Driver Name</b></th>
-    <th><b>Driver Contact</b></th>
-    <th><b>Departure From</b></th>
-    <th><b>Arrival At</b></th>
-    <th><B>Arrival Time</b></th>
+    <th><B><u>Bus ID</u></b></th>
+    <th><B><u>Driver ID</u></b></th>
+    <th><b><u>Driver Name</u></b></th>
+    <th><b><u>Driver Contact</u></b></th>
+    <th><b><u>Departure From</u></b></th>
+    <th><b><u>Arrival At</u></b></th>
+    <th><B><u>Arrival Time</u></b></th>
 </tr>
 <%
-try{
-connection = DriverManager.getConnection("jdbc:mysql://localhost/busman", "root", "");
-statement=connection.createStatement();
- String sql = "select *from busdetail2 where Bid='"+bid+"' and Did='"
-                     + did+"'";
-resultSet = statement.executeQuery(sql);
-while(resultSet.next()){
-%>
+Configuration cf=new Configuration();
+cf.configure();
+SessionFactory sf = cf.buildSessionFactory();
+  Session session1 =sf.openSession();
+session1 =sf.openSession();
+String SQL_QUERY ="from bus where bid='"+bid+"' and did='"+did+"'";
+Query query = session1.createQuery(SQL_QUERY);
+Iterator it=query.iterate();
+while(it.hasNext())
+{
+bus e=(bus)it.next();
+String id1=e.getBId();
+String id2=e.getDId();
+String name=e.getName();
+String contact=e.getContact(); 
+String dep = e.getDeparture();
+String ar = e.getArival();
+String time=e.getTime();
+%> 
 <tr>
-<td><b><%=resultSet.getString(1) %></b></td>
-<td><%=resultSet.getString(2) %></td>
-<td><%=resultSet.getString(3) %></td>
-<td><%=resultSet.getString(4) %></td>
-<td><%=resultSet.getString(5) %></td>
-<td><%=resultSet.getString(6) %></td>
-<td><%=resultSet.getString(7) %></td>
-
+<td><%=id1%></td>
+<td><%=id2%></td>
+<td><%=name%></td>
+<td><%=contact%></td>
+<td><%=dep%></td>
+<td><%=ar%></td>
+<td><%=time%></td>
+</tr>
 <%
 }
-connection.close();
-} catch (Exception e) {
-e.printStackTrace();
-}
+session1.close();
 %>
 </table>
             
             
         </div>
+	<div id="particles-js">
+            <script type="text/javascript" src="particles.js"></script>
+     <script type="text/javascript" src="app1.js"></script>
+</div>
     </body>
 </html>

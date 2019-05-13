@@ -1,7 +1,14 @@
 
 package model;
 
+import javax.persistence.Entity;
+import javax.persistence.Id;
+import javax.persistence.Table;
+
+@Entity
+@Table(name="bdeti2")
 public class bus {
+    @Id
      private String bid;
     private String did;
     private String dname;

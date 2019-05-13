@@ -10,6 +10,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 import model.admin;
+import model.admin1;
 import model.adminDAO;
 import model.user;
 import model.userDao;
@@ -23,7 +24,7 @@ public class adminservlet extends HttpServlet {
             
           String uname = request.getParameter("username");
             String pwd = request.getParameter("password");
-            admin ad = new admin();
+            admin1 ad = new admin1();
             ad.setName(uname);
             ad.setPass(pwd);
             
@@ -33,13 +34,14 @@ public class adminservlet extends HttpServlet {
           {
              HttpSession session = request.getSession();
               session.setAttribute("uname",uname);
-              RequestDispatcher rd = request.getRequestDispatcher("adminLandPage.jsp");
+              RequestDispatcher rd = request.getRequestDispatcher("adminhome.html");
               rd.forward(request,response); 
               
           }
           else
           {
-              response.sendRedirect("log4.html");
+               out.print("<script>alert('UserName And Password Does not Match...Please try Again..'); setTimeout(function(){window.location='animationlogin1.html'}, 1*1000);</script>");
+             // response.sendRedirect("animationlogin1.html");
           }
     }
 

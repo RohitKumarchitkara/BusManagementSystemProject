@@ -1,27 +1,33 @@
 
 
+<%@page import="java.util.List"%>
+<%@page import="model.bus"%>
+<%@page import="java.util.Iterator"%>
+<%@page import="org.hibernate.Query"%>
+<%@page import="org.hibernate.Session"%>
+<%@page import="org.hibernate.SessionFactory"%>
+<%@page import="org.hibernate.cfg.Configuration"%>
 <%@page import="java.sql.DriverManager"%>
 <%@page import="java.sql.ResultSet"%>
 <%@page import="java.sql.Statement"%>
 <%@page import="java.sql.Connection"%>
-<%
-String driver = "com.mysql.jdbc.Driver";
-try {
-Class.forName(driver);
-} catch (ClassNotFoundException e) {
-e.printStackTrace();
-}
-Connection connection = null;
-Statement statement = null;
-ResultSet resultSet = null;
-%>
+
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html>
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
         <title>JSP Page</title>
+               <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
         <style>
+            body 
+            {
+                background-image: url("oi1.jpg");
+                background-repeat: no-repeat;
+            }
              .header 
           {
               height: 100px;
@@ -58,10 +64,10 @@ ResultSet resultSet = null;
     padding: 20px;
 }
 
-#customers tr:nth-child(even){background-color: #f2f2f2;}
+#customers tr:nth-child(even){background-color: white;}
 
-#customers tr:hover {background-color: cyan;}
-#customers th:hover {background-color: green;}
+#customers tr:hover {background-color: #303952;color: white;}
+
 #customers th {
     padding-top: 12px;
     padding-bottom: 12px;
@@ -69,16 +75,70 @@ ResultSet resultSet = null;
     background-color: dodgerblue;
     color: white;
 }
+.head 
+{
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	background-color:#16d1ef;
+	color:white;
+	font-size: 45px;
+	height: 100px;
+	padding: 5px;
+}
+.nav{
+			display: flex;
+			background-color: black;
+
+		}
+
+		.nav a{
+			text-align: center;
+			text-decoration: none;
+			color: #f1f1f1;
+			padding: 12px 14px;
+			width: 20%;
+
+		}
+
+		.nav a:hover{
+			color: black;
+			background-color: whitesmoke;
+		}
+                .button is-danger
+                {
+                    height: 45;
+                }
+                .abc 
+{
+    background-color: #f70334;
+}
+.table-dark td, .table-dark th, .table-dark thead th 
+{
+    border-color: white;
+}
+.table-dark th{
+    background-color: black;
+}
          </style>
     </head>
     <body>
-        <div class="main">
-        <div class="header">
-            <h1><b><center>Bus Record Details</center></b></h1>
-        </div>
-        </div>
+        <div class="head">
+             <b>Bus Record Details</b>
+		</div>
+        <div class="nav">
+	<a href="busdetails2.html">HOME</a>
+		<a href="driverdetail2.html">Driver</a>
+		<a href="busdetails2.html">Bus</a>
+		<a href="routehome1.html">Routes</a>
+	        
+  
+  
+  <a href="logout" class="abc">Logout</a>
+</div>
+        <br>
         <div class="cont">
-            <table border="3 solid black" id="customers">
+            <table class="table table-dark table-hover">
 <tr>
     <th><B>Bus ID</b></th>
     <th><B>Driver ID</b></th>
@@ -90,27 +150,22 @@ ResultSet resultSet = null;
     
 </tr>
 <%
-try{
-connection = DriverManager.getConnection("jdbc:mysql://localhost/busman", "root", "");
-statement=connection.createStatement();
-String sql ="select * from busdetail2";
-resultSet = statement.executeQuery(sql);
-while(resultSet.next()){
+   List<bus> records =  (List<bus>)request.getAttribute("list");   
+   for(bus s: records)
+   {
+
+     
 %>
 <tr>
-<td><b><%=resultSet.getString(1) %></b></td>
-<td><%=resultSet.getString(2) %></td>
-<td><%=resultSet.getString(3) %></td>
-<td><%=resultSet.getString(4) %></td>
-<td><%=resultSet.getString(5) %></td>
-<td><%=resultSet.getString(6) %></td>
-<td><%=resultSet.getString(7) %></td>
-
+<td><%=s.getBId()%></td>
+<td><%=s.getDId()%></td>
+<td><%=s.getName()%></td>
+<td><%=s.getContact()%></td>
+<td><%=s.getDeparture()%></td>
+<td><%=s.getArival()%></td>
+<td><%=s.getTime()%></td>
+</tr>
 <%
-}
-connection.close();
-} catch (Exception e) {
-e.printStackTrace();
 }
 %>
 </table>

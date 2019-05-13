@@ -25,22 +25,22 @@ public class deleteServlet extends HttpServlet {
            String did = request.getParameter("dID");
         String dname = request.getParameter("dname");
         
-        String dln = request.getParameter("dln");
+        
         delete d = new delete();
         d.setId(did);
         d.setName(dname);
-        d.setLn(dln);
+       
         deleteDAO dd = new deleteDAO();   
 
         
         if (dd.check(d)) {
             HttpSession session = request.getSession();
             session.setAttribute("dname", dname);
-            RequestDispatcher rd = request.getRequestDispatcher("driverdetails.jsp");
-            rd.forward(request, response);
-
+            out.print("<script>alert('Your Driver Details has been Deleted'); setTimeout(function(){window.location='driverdetail2.html'}, 1*1000);</script>");
+           
         } else {
-            response.sendRedirect("deleteRecord.jsp");
+            
+             out.print("<script>alert('Sorry....Please Match Id and Name'); setTimeout(function(){window.location='deletedriver.html'}, 1*1000);</script>");
         }
 
         
